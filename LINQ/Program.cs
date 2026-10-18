@@ -94,8 +94,21 @@ namespace LINQ
 			#region Question9
 			//9. Get all products from the "Beverages" category, sorted by
 			//UnitsInStock descending. Print name and stock.
-			var result = ProductList.Where(p => p.Category == "Beverages").OrderByDescending(p => p.UnitsInStock)
-				.Select(p => new { p.ProductName, p.UnitsInStock });
+			//var result = ProductList.Where(p => p.Category == "Beverages").OrderByDescending(p => p.UnitsInStock)
+			//	.Select(p => new { p.ProductName, p.UnitsInStock });
+			//foreach (var item in result)
+			//{
+			//	Console.WriteLine(item);
+			//}
+			#endregion
+
+			#region Question10
+			//10. Using QUERY SYNTAX with a compound from clause, list
+			//all orders placed in 1997 or later showing CustomerID and OrderDate.
+			var result = from customer in CustomerList
+				         from order in customer.Orders
+						 where order.OrderDate.Year >= 1997
+						 select new { customer.CustomerID, order.OrderDate };
 			foreach (var item in result)
 			{
 				Console.WriteLine(item);
