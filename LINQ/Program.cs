@@ -84,13 +84,23 @@ namespace LINQ
 			#region Question8
 			//8. Sort ProductList by Category ascending, then within each
 			//category, sort by UnitPrice descending.
-			var result = ProductList.OrderBy(p => p.Category).ThenByDescending(p => p.UnitPrice);
+			//var result = ProductList.OrderBy(p => p.Category).ThenByDescending(p => p.UnitPrice);
+			//foreach (var item in result)
+			//{
+			//	Console.WriteLine(item);
+			//}
+			#endregion
+
+			#region Question9
+			//9. Get all products from the "Beverages" category, sorted by
+			//UnitsInStock descending. Print name and stock.
+			var result = ProductList.Where(p => p.Category == "Beverages").OrderByDescending(p => p.UnitsInStock)
+				.Select(p => new { p.ProductName, p.UnitsInStock });
 			foreach (var item in result)
 			{
 				Console.WriteLine(item);
 			}
 			#endregion
-
 
 		}
 	}
