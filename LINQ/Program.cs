@@ -19,7 +19,17 @@ namespace LINQ
 			#region Question2 
 			//2. Get a list of only the product names from ProductList. Print
 			//each name.
-			var result = ProductList.Select(p => p.ProductName);
+			//var result = ProductList.Select(p => p.ProductName);
+			//foreach (var item in result)
+			//{
+			//	Console.WriteLine(item);
+			//}
+			#endregion
+
+			#region Question3 
+			//3. Sort all products by UnitPrice (ascending). Print each
+			//product's name and price.
+			var result = ProductList.OrderBy(p => p.UnitPrice).Select(p => new { p.ProductName, p.UnitPrice });
 			foreach (var item in result)
 			{
 				Console.WriteLine(item);
