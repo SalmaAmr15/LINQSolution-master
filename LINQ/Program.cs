@@ -38,13 +38,22 @@ namespace LINQ
 
 			#region Question4
 			//4. Get all products where UnitPrice is between 10 and 30
-			var result = ProductList.Where(p => p.UnitPrice >= 10 && p.UnitPrice <= 30);
+			//var result = ProductList.Where(p => p.UnitPrice >= 10 && p.UnitPrice <= 30);
+			//foreach (var item in result)
+			//{
+			//	Console.WriteLine(item);
+			//}
+			#endregion
+
+			#region Question5
+			//5. Get all products that are in stock (UnitsInStock > 0) and
+			//belong to the "Condiments" category.
+			var result = ProductList.Where(p => p.UnitsInStock > 0 && p.Category == "Condiments");
 			foreach (var item in result)
 			{
 				Console.WriteLine(item);
 			}
 			#endregion
-
 
 
 		}
