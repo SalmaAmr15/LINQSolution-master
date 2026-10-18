@@ -9,12 +9,23 @@ namespace LINQ
 			#region Question1
 			//1. Get all products from the "Seafood" category. Print each
 			//product's name and price.
-			var result = ProductList.Where(p => p.Category == "Seafood").Select(p=> new {p.ProductName , p.UnitPrice });
-			foreach(var item in result)
+			//var result = ProductList.Where(p => p.Category == "Seafood").Select(p=> new {p.ProductName , p.UnitPrice });
+			//foreach(var item in result)
+			//{
+			//	Console.WriteLine(item);
+			//}
+			#endregion
+
+			#region Question2 
+			//2. Get a list of only the product names from ProductList. Print
+			//each name.
+			var result = ProductList.Select(p => p.ProductName);
+			foreach (var item in result)
 			{
 				Console.WriteLine(item);
 			}
 			#endregion
+
 
 		}
 	}
