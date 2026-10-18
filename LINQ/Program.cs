@@ -56,18 +56,28 @@ namespace LINQ
 			#endregion
 
 			#region Question6
-            //6.Create a new anonymous type with three properties:
-            //● Name → the product name
-            //● Price → the unit price
-            //● StockStatus → a string: "Available" if UnitsInStock > 0,
-            //otherwise "Out of Stock"
-            //● Print the result.
-			var result = ProductList.Select(p => new { Name = p.ProductName, Price = p.UnitPrice,
-				StockStatus = p.UnitsInStock > 0 ? "Available" : "Out of Stock" 
-			});
+			//6.Create a new anonymous type with three properties:
+			//● Name → the product name
+			//● Price → the unit price
+			//● StockStatus → a string: "Available" if UnitsInStock > 0,
+			//otherwise "Out of Stock"
+			//● Print the result.
+			//var result = ProductList.Select(p => new { Name = p.ProductName, Price = p.UnitPrice,
+			//	StockStatus = p.UnitsInStock > 0 ? "Available" : "Out of Stock" 
+			//});
+			//foreach (var item in result)
+			//{
+			//	Console.WriteLine(item);
+			//}
+			#endregion
+
+			#region Question7
+			//7. Print each product's name along with its position (1-based)
+             //in the list. Expected format: 1.Chai, 2.Chang, etc.
+			 var result = ProductList.Select((p, i) => new { position= i + 1,  p.ProductName });
 			foreach (var item in result)
 			{
-				Console.WriteLine(item);
+				Console.WriteLine($"{item.position}. {item.ProductName}");
 			}
 			#endregion
 
